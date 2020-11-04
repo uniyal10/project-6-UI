@@ -1,0 +1,18 @@
+
+  <div class="inputDiv">
+    <label for="name">Name</label>
+    <input [(ngModel)]="customer.name" type="text" >
+  </div>
+  <br>
+  <div class="inputDiv">
+    <label for="website">Website</label>
+    <input [(ngModel)]="customer.website" type="text">
+  </div>
+  <br>
+  <div class="inputDiv">
+    <label for="address">Address</label>
+    <input [(ngModel)]="customer.address" type="text">
+  </div>
+
+<button (click)="saveCustomer(customer.id)" routerLink="">Save</button>
+<button routerLink="">Cancel</button>

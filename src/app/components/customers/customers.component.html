@@ -1,0 +1,8 @@
+ <div class="HEADER">
+   <H3>CUSTOMERS</H3>
+ </div>
+ 
+  <app-customer (deleteCustomerEvent)="deleteCustomerEvent($event)" *ngFor="let customer of customers" [customer]="customer"></app-customer>
+
+
+  

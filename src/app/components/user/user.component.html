@@ -1,0 +1,13 @@
+<tr>
+  <td>{{user.firstname}}</td>||
+  <td>{{user.middlename}}</td>||
+  <td>{{user.lastname}}</td>||
+  <td>{{user.email}}</td>||
+  <td>{{user.phonenumber}}</td>||
+  <td>{{user.role}}</td>||
+  <td>{{user.address}}</td>||
+</tr>
+<button [routerLink]="['/editUser',user.id]">Edit</button>||
+<button (click)="deleteUser(user.id)" routerLink="">Delete</button>||
+<br>
+<hr>

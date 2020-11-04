@@ -1,0 +1,11 @@
+
+  <div class="container">
+    <tr>
+      <td>{{customer.name}}</td>||
+      <td>{{customer.website}}</td>||
+      <td>{{customer.address}}</td>
+    </tr>
+    <button  [routerLink]="['/editCustomer',customer.id]">Edit</button>||
+    <button (click)="deleteCustomer(customer.id)" routerLink="">Delete</button>||
+    <button  [routerLink]="['/user',customer.id]">Show Users</button>
+  </div>

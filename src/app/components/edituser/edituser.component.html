@@ -1,0 +1,27 @@
+<div class="input">
+  <label for="firstname">First Name</label>
+  <input [(ngModel)]="user.firstname" type="text">
+</div>
+<div class="input">
+  <label  for="middlename">Middle Name</label>
+  <input [(ngModel)]="user.middlename" type="text">
+</div><div class="input">
+  <label for="lastname">Last Name</label>
+  <input [(ngModel)]="user.lastname" type="text">
+</div><div class="input">
+  <label for="email">Email</label>
+  <input [(ngModel)]="user.email" type="text">
+</div><div class="input">
+  <label for="phonenumber">Phone Number</label>
+  <input [(ngModel)]="user.phonenumber" type="number">
+</div><div class="input">
+  <label for="role">Role</label>
+  <input [(ngModel)]="user.role" type="text">
+</div>
+<div class="input">
+  <label for="address">Address</label>
+  <input [(ngModel)]="user.address" type="text">
+</div>
+
+<button (click)="saveUser(user.id)" routerLink="">Save</button>
+<button routerLink="">Cancel</button>

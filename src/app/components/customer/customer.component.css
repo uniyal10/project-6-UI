@@ -1,0 +1,29 @@
+
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+tr{
+  display: flex;
+}
+
+td{
+  padding: 10px;
+  background-color: aquamarine;
+  margin-left: 10px;
+}
+
+button{
+  padding: 0px 10px;
+  background-color:aqua;
+  color:black;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  border: 1px solid red;
+}
+button:hover{
+  cursor: pointer;
+}
