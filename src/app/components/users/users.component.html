@@ -1,1 +1,32 @@
-<app-user (deleteUserEvent)="deleteUserEvent($event)" *ngFor="let user of users" [user]="user"></app-user>
+
+
+<div class="container">
+  <div>
+    <h1> <span>Manage</span> Users</h1>
+  </div>
+  <div>
+    <button (click)="addUser()"><i style="margin-right: 5px;font-size: 20px;" class="fa fa-plus-circle"></i>Add New user </button>
+  </div>
+</div>
+<div>
+  <i  [routerLink]="['/']" style="color: blue;font-size: 30px;padding: 10px;" class="fa fa-arrow-left"> Back</i>
+
+</div>
+<tr>
+  
+  
+  
+
+ 
+<th>Firstname</th>
+    <th>Middlename</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Role</th>
+    <th>Address</th>
+    <th>Actions</th>
+  </tr>
+
+<app-edituser (cancelEvent)='cancelEvent()' (addUserEvent)="addUserEvent($event)" *ngIf='isAdd'></app-edituser>
+<app-user (saveEvent)='saveEvent($event)' (deleteEvent)="deleteUserEvent($event)" *ngFor="let user of users" [user]="user"></app-user>

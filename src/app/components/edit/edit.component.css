@@ -1,0 +1,63 @@
+ 
+
+ button{
+  padding:10px 20px;
+  background-color: blue;
+  color: azure;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 5px;
+
+ }
+
+i:hover{
+ cursor: pointer;
+}
+ button:hover{
+   cursor: pointer;
+   background-color: blueviolet;
+ }
+
+
+input{
+ text-align: center;
+ background-color: white;
+ padding: 10px 8px;
+}
+
+.container{
+ display: flex;
+ justify-content: space-between;
+ width: 65%;
+}
+.container div{
+ display: flex;
+ text-align: center;
+ flex-direction: column;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  cursor: pointer;
+}

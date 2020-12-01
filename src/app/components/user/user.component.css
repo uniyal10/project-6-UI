@@ -1,0 +1,47 @@
+ 
+
+
+i:hover{
+ cursor: pointer;
+}
+
+input{
+ border: none;
+ text-align: center;
+ background-color: white;
+ padding: 10px 10px;
+ margin: 5px;
+}
+
+.container{
+ display: flex;
+ justify-content: space-between;
+ width: 70%;
+}
+.container div{
+ display: flex;
+ flex-direction: column;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  cursor: pointer;
+}

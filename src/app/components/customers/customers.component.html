@@ -1,7 +1,22 @@
- <div class="HEADER">
-   <H3>CUSTOMERS</H3>
- </div>
- 
+<div class="container">
+  <div>
+    <h1> <span>Manage</span> Customers</h1>
+  </div>
+  <div>
+    <button (click)="addCustomer()"><i style="margin-right: 5px;font-size: 20px;" class="fa fa-plus-circle"></i>Add New customer </button>
+  </div>
+</div>
+<div class="divRow">
+  <tr>
+    <th>Name</th>
+    <th>Website</th>
+    <th >Address</th>
+    <th>Actions</th>
+  </tr>
+</div>
+
+
+<app-edit (addCustomerEvent)='addCustomerEvent($event)' (handleCancelEvent)="handleCancelEvent()"  *ngIf="isAdd"></app-edit>
   <app-customer (deleteCustomerEvent)="deleteCustomerEvent($event)" *ngFor="let customer of customers" [customer]="customer"></app-customer>
 
 

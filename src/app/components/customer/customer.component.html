@@ -1,11 +1,73 @@
 
-  <div class="container">
-    <tr>
-      <td>{{customer.name}}</td>||
+ 
+    <form [formGroup]="customerDetailsForm">
+      <div class="container">
+        <div style="position: relative;">
+          <input  [ngStyle]="{'border':isEdit?'1px solid green':'none'
+          }" [attr.disabled]='isDisplay' formControlName='name' >
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+  box-shadow: 5px 5px #888888;
+ position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('name'))">name is required</span>
+        
+        </div>
+        <div style="position: relative;">
+          <input [ngStyle]="{'border':isEdit?'1px solid green':'none'}" [attr.disabled]='isDisplay' formControlName='website' >
+          <span  style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('website'))">website is required</span>
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkInvalidCondition(this.customerDetailsForm.get('website'))">website is invalid</span>
+
+        </div>
+       
+        <div style="position: relative;">
+          <input [ngStyle]="{'border':isEdit?'1px solid green':'none'}" [attr.disabled]='isDisplay' formControlName='address' >
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('address'))">address is required</span>
+    
+        </div>
+        <!-- <button  [routerLink]="['/editCustomer',customer.id]">Edit</button>|| -->
+     <div style="display: flex; flex-direction: row;">
+
+     <div class="tooltip">
+      <i *ngIf='!isEdit'  style="color:yellow;font-size: 30px; margin-left: 20px;" (click)='editEvent()' class="fa fa-edit"></i>
+      <span class="tooltiptext">edit</span>
+
+     </div>
+       
+     <div class="tooltip">
+      <i  *ngIf='!isEdit' style="color:red;font-size: 30px; margin-left: 20px;" (click)="deleteCustomer(customer.id)" routerLink="" class="fa fa-trash"></i>
+      <span class="tooltiptext">delete</span>
+
+     </div>
+     <div class="tooltip">
+      <i  (click)="saveEvent(customer.id)" [ngStyle]="{'display':this.customerDetailsForm.invalid?'none':''}" *ngIf='isEdit' style="color:yellow;font-size: 30px; margin-left: 20px;" class="fa fa-save"></i>
+      <span class="tooltiptext">save</span>
+
+       
+     </div>
+     
+     <div class="tooltip">
+      <i  (click)='handleCancel()' *ngIf='isEdit' style="color:red;font-size: 30px; margin-left: 20px;" class="fa fa-window-close"></i>
+      <span class="tooltiptext">cancel</span>
+
+     </div>
+      <div class="tooltip">
+        <i    [routerLink]="['/user',customer.id]" style="color:blue;font-size: 30px; margin-left: 20px;" class="fa fa-users"></i>
+        <span class="tooltiptext">show users</span>
+
+      </div>
+       
+     
+      </div> 
+      </div>
+
+    </form>
+    <hr>
+
+      <!-- <td>{{customer.name}}</td>||
       <td>{{customer.website}}</td>||
-      <td>{{customer.address}}</td>
-    </tr>
-    <button  [routerLink]="['/editCustomer',customer.id]">Edit</button>||
-    <button (click)="deleteCustomer(customer.id)" routerLink="">Delete</button>||
-    <button  [routerLink]="['/user',customer.id]">Show Users</button>
-  </div>
+      <td>{{customer.address}}</td> -->
+  

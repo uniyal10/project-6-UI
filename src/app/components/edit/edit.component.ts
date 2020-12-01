@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
+import { Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import {Customer} from '../../../Models/Customer'
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import {CustomerService} from '../../services/customer.service'
 @Component({
   selector: 'app-edit',
@@ -9,21 +9,53 @@ import {CustomerService} from '../../services/customer.service'
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
- 
-   customer:Customer
+   customerDetailsForm :any
+
+   @Output() addCustomerEvent:EventEmitter<any> = new EventEmitter<any>()
+@Output() handleCancelEvent:EventEmitter<any> =new EventEmitter<any>()
+  constructor(private customerService:CustomerService) { }
 
 
-  constructor(private route: ActivatedRoute,private customerService:CustomerService) { }
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.customerService.getCustomer(params.get('id'))
-    )).subscribe(customer =>this.customer=customer)
+
+this.buildCustomerForm()
   }
 
-  saveCustomer(id:number){
-    this.customerService.saveCustomer(id,this.customer).subscribe(()=>console.log('updated sucessfully'))
+ 
+
+  buildCustomerForm=()=>{
+    this.customerDetailsForm = new FormGroup({
+         'name':new FormControl('',[Validators.required]),
+         'website':new FormControl('',[Validators.required]),
+         'address': new FormControl('',[Validators.required])
+        })
   }
+  checkRequiredCondition(control: any):boolean{
+    return (control.touched || control.dirty) && !control.value && control.invalid
+  }
+
+  checkInvalidCondition(control: any):boolean{
+    return  (control.touched || control.dirty) && control.invalid && control.value
+  }
+
+
+
+
+saveEvent(){
+  const customer={
+    name:this.customerDetailsForm.get('name').value,
+    website:this.customerDetailsForm.get('website').value,
+   address:this.customerDetailsForm.get('address').value
+  }
+  this.addCustomerEvent.emit(customer)
+  
+}
+handleCancel(){
+this.handleCancelEvent.emit()
+}
+  
+ 
+ 
 
 }

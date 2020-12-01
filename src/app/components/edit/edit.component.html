@@ -1,18 +1,54 @@
 
-  <div class="inputDiv">
-    <label for="name">Name</label>
-    <input [(ngModel)]="customer.name" type="text" >
-  </div>
-  <br>
-  <div class="inputDiv">
-    <label for="website">Website</label>
-    <input [(ngModel)]="customer.website" type="text">
-  </div>
-  <br>
-  <div class="inputDiv">
-    <label for="address">Address</label>
-    <input [(ngModel)]="customer.address" type="text">
-  </div>
+ 
+    <form [formGroup]="customerDetailsForm">
+      <div class="container">
+        <div style="position: relative;">
+          <input  placeholder="name" formControlName='name' >
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('name'))">name is required</span>
+        
+        </div>
+        <div style="position: relative;">
+          <input placeholder="website"   formControlName='website' >
+          <span  style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('website'))">website is required</span>
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkInvalidCondition(this.customerDetailsForm.get('website'))">website is Invalid</span>
 
-<button (click)="saveCustomer(customer.id)" routerLink="">Save</button>
-<button routerLink="">Cancel</button>
+        </div>
+       
+        <div style="position: relative;">
+          <input  placeholder="address" formControlName='address' >
+          <span style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+          box-shadow: 5px 5px #888888;
+         position:absolute; top: -20px; background-color: red;" *ngIf="checkRequiredCondition(this.customerDetailsForm.get('address'))">address is required</span>
+    
+        </div>
+        <!-- <button  [routerLink]="['/editCustomer',customer.id]">Edit</button>|| -->
+     <div style="display: flex; flex-direction: row;padding: 0px 10px;">
+
+     
+      <div class="tooltip">
+        <i class="fa fa-save" style="color:yellow;font-size: 30px; margin-left: 20px;" (click)="saveEvent()" [ngStyle]="{'display':this.customerDetailsForm.invalid?'none':''}" ></i>
+        <span *ngIf='!this.customerDetailsForm.invalid' class="tooltiptext">save</span>
+
+      </div>  
+      
+      <div class="tooltip">
+        <i (click)='handleCancel()' style="color:red;font-size: 30px; margin-left: 20px;" class="fa fa-window-close"></i>
+        <span class="tooltiptext">cancel</span>
+
+      </div>
+      </div> 
+      </div>
+
+    </form>
+    <hr>
+
+      <!-- <td>{{customer.name}}</td>||
+      <td>{{customer.website}}</td>||
+      <td>{{customer.address}}</td> -->
+  

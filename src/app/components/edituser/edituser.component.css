@@ -1,0 +1,109 @@
+/* .container{
+  font-family: 'Courier New', Courier, monospace;
+  width: 60%;
+  margin: auto;
+  background-color: azure;
+  padding: 20px;
+  margin-top: 10px;
+  
+}
+
+
+.btncontainer{
+ text-align: center;
+ margin-top: 5%;
+}
+
+.btn{
+  background-color: rgb(36, 36, 255);
+  color: aliceblue;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+}
+.btn:hover{
+  background-color: rgb(78, 78, 255);
+cursor: pointer;
+}
+
+.input{
+ display: flex;
+}
+.input label{
+  flex: 5;
+}
+.input input{
+  flex: 10;
+}
+
+input{
+  padding: 10px;
+  margin: 10px;
+}
+label{
+  padding: 10px;
+  margin: 10px;
+} */
+.container{
+  display: flex;
+}
+.container div{
+  display: flex;
+  flex-direction: column;
+}
+ 
+
+button{
+  padding:10px 20px;
+  background-color: blue;
+  color: azure;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 5px;
+
+ }
+
+i:hover{
+ cursor: pointer;
+}
+ button:hover{
+   cursor: pointer;
+   background-color: blueviolet;
+ }
+
+
+input{
+
+ text-align: center;
+ background-color: white;
+ padding: 10px 10px;
+ margin: 5px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+  top: -30px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  cursor: pointer;
+}

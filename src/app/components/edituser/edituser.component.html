@@ -1,27 +1,145 @@
-<div class="input">
-  <label for="firstname">First Name</label>
-  <input [(ngModel)]="user.firstname" type="text">
-</div>
-<div class="input">
-  <label  for="middlename">Middle Name</label>
-  <input [(ngModel)]="user.middlename" type="text">
-</div><div class="input">
-  <label for="lastname">Last Name</label>
-  <input [(ngModel)]="user.lastname" type="text">
-</div><div class="input">
-  <label for="email">Email</label>
-  <input [(ngModel)]="user.email" type="text">
-</div><div class="input">
-  <label for="phonenumber">Phone Number</label>
-  <input [(ngModel)]="user.phonenumber" type="number">
-</div><div class="input">
-  <label for="role">Role</label>
-  <input [(ngModel)]="user.role" type="text">
-</div>
-<div class="input">
-  <label for="address">Address</label>
-  <input [(ngModel)]="user.address" type="text">
+<!-- <div class="container">
+  <form action="" [formGroup]="userDetailsForm">
+    <div class="input">
+      <label for="firstName">firstName</label>
+      <input name="firstName" formControlName="firstName" type="text">
+    </div>
+    <span style="color: red;font-weight: bold;" *ngIf="checkRequiredCondition(this.userDetailsForm.get('firstName'))">First Name is required</span>
+    <div class="input">
+      <label for="middleName">middleName</label>
+      <input name="middleName" formControlName="middleName" type="text">
+    </div>
+
+    <div class="input">
+      <label for="lastName">lastName</label>
+      <input name="lastName" formControlName="lastName" type="text">
+    </div>
+    <div class="input">
+      <label for="email">email</label>
+      <input name="email" formControlName="email" type="text">
+      </div>
+      <span  style="color: red;font-weight: bold;" *ngIf="checkRequiredCondition(this.userDetailsForm.get('email'))">Email is required</span>
+      <span  style="color: red;font-weight: bold;" *ngIf="checkInvalidCondition(this.userDetailsForm.get('email'))">Email is invalid</span>
+    
+    <div class="input">
+      <label for="number">phoneNumber</label>
+      <input formControlName="phoneNumber" name="number" type="number">
+    </div>
+    <span  style="color: red;font-weight: bold;" *ngIf="checkRequiredCondition(this.userDetailsForm.get('phoneNumber'))">Number is required</span>
+    <span  style="color: red;font-weight: bold;" *ngIf="checkInvalidCondition(this.userDetailsForm.get('phoneNumber'))">Number is invalid</span>
+
+    <div class="input">
+      <label for="role">role</label>
+      <input formControlName="role" name="role" type="text">
+    </div>
+    <span  style="color: red;font-weight: bold;" *ngIf="checkRequiredCondition(this.userDetailsForm.get('role'))">Role is required</span>
+
+    <div class="input">
+      <label for="address">address</label>
+      <input name="address" formControlName="address" type="text">
+    </div>
+    <span  style="color: red;font-weight: bold;" *ngIf="checkRequiredCondition(this.userDetailsForm.get('address'))">Address is required</span>
+
+  </form>
 </div>
 
-<button (click)="saveUser(user.id)" routerLink="">Save</button>
-<button routerLink="">Cancel</button>
+<div class="btncontainer">
+  <button [ngStyle]="{'display':this.userDetailsForm.invalid?'none':''}"  class="btn" (click)="onSave()">Save</button>
+  <button class="btn" (click)="onCancel()">Cancel</button>
+</div> -->
+
+
+
+
+
+
+
+
+  <!-- <td>{{user.id}}</td> -->
+  
+  <form [formGroup]="userDetailsForm">
+
+    <!-- <td><input required [(ngModel)]="firstName"   type="text" value={{user.firstname}} ></td>
+    <td><input [(ngModel)]="middleName" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.middlename}} [disabled]="isDisplay"></td>
+    <td><input [(ngModel)]="lastName" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.lastname}} [disabled]="isDisplay"></td>
+    <td> <input [(ngModel)]="email" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.email}} [disabled]="isDisplay"> </td>
+    <td><input [(ngModel)]="phoneNumber" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.phonenumber}} [disabled]="isDisplay"></td>
+    <td><input [(ngModel)]="role" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.role}} [disabled]="isDisplay"></td>
+    <td><input [(ngModel)]="address" [ngStyle]="{'border':isEdit?'1px solid green':'none'}" type="text" value={{user.address}} [disabled]="isDisplay"></td>
+     <td><input type="text" value={{user.createdAt}}></td> 
+    <td><input type="text" value={{user.updatedAt}}></td> -->
+    <div class="container">
+  
+    
+    <div style="position: relative;">
+      <input  required placeholder="firstname" formControlName="firstName" name="firstname"   type="text" >
+      <span  *ngIf="checkRequiredCondition(this.userDetailsForm.get('firstName'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+      box-shadow: 5px 5px #888888;
+     position:absolute; top: -20px; background-color: red;">First Name is required</span>
+    
+    </div>
+    <div >
+      <input placeholder="middlename"  formControlName="middleName" name="middlename"  type="text"  >
+    
+    </div>
+  
+   <div>
+    <input placeholder="lastname"  formControlName="lastName" name="lastname"  type="text" >
+  
+   </div>
+    
+    <div style="position: relative;">
+      <input required placeholder="email"  formControlName="email" name="email"  type="email"  > 
+      <span *ngIf="checkRequiredCondition(this.userDetailsForm.get('email'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+      box-shadow: 5px 5px #888888;
+     position:absolute; top: -20px; background-color: red;">Email is required</span>
+       <span *ngIf="checkInvalidCondition(this.userDetailsForm.get('email'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+       box-shadow: 5px 5px #888888;
+      position:absolute; top: -20px; background-color: red;">Email is invalid</span>
+      
+    </div> 
+    <div style="position: relative;">
+      <input placeholder="number" formControlName="phoneNumber" type="number" name="phoneNumber"    >
+      <span *ngIf="checkRequiredCondition(this.userDetailsForm.get('phoneNumber'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+      box-shadow: 5px 5px #888888;
+     position:absolute; top: -20px; background-color: red;">Number is required</span>
+      <span *ngIf="checkInvalidCondition(this.userDetailsForm.get('phoneNumber'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+      box-shadow: 5px 5px #888888;
+     position:absolute; top: -20px; background-color: red;">Number is invalid</span>
+    
+    </div>
+    <div style="position: relative;">
+      <input placeholder="role"  formControlName="role" name="role"  type="text"  [disabled]="true">
+      <span *ngIf="checkRequiredCondition(this.userDetailsForm.get('role'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+  box-shadow: 5px 5px #888888;
+ position:absolute; top: -20px; background-color: red;">Role is required</span>
+  
+    </div>
+    <div style="position: relative;">
+      <input placeholder="address"   formControlName="address" name="address"  type="text"  >
+      <span *ngIf="checkRequiredCondition(this.userDetailsForm.get('address'))" style="color: white;font-weight: bold; padding: 5px 10px; border-radius: 8px ;   box-shadow: 5px 10px #888888;
+  box-shadow: 5px 5px #888888;
+ position:absolute; top: -20px; background-color: red;">Address is required</span>
+  
+    </div>
+  <div class="tooltip">
+    <i [ngStyle]="{'display':this.userDetailsForm.invalid?'none':'block'}" (click)="onSave()" style="color:yellow;font-size: 30px; margin-left: 20px;"class="fa fa-save"></i>
+    <span class="tooltiptext">save</span>
+
+  </div>  
+  <div class="tooltip">
+    <i (click)="onCancel()" style="color:red;font-size: 30px; margin-left: 20px;" class="fa fa-window-close"></i>
+    <span class="tooltiptext">cancel</span>
+
+  </div>
+  
+  </div>
+  </form>
+  <!-- <button (click)="onEdit(user.id)">Edit</button>
+  <button (click)="onDelete(user.id)">Delete</button> -->
+  <!-- <i (click)="onEdit(user.id)" style="color:yellow;font-size: 30px; margin-left: 20px;"class="fa fa-edit"></i>
+  <i  (click)="onDelete(user.id)" style="color:red;font-size: 30px; margin-left: 20px;" class="fa fa-trash"></i> -->
+  
+  <hr>
+  <br>
+  

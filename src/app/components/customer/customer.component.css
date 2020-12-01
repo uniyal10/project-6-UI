@@ -1,29 +1,65 @@
+ 
+
+ button{
+  padding:10px 20px;
+  background-color: blue;
+  color: azure;
+  border: none;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 5px;
+
+ }
+
+i:hover{
+ cursor: pointer;
+}
+ button:hover{
+   cursor: pointer;
+   background-color: blueviolet;
+ }
+
+
+input{
+ border: none;
+ text-align: center;
+ background-color: white;
+ padding: 10px 10px;
+ margin: 5px;
+}
 
 .container{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+ display: flex;
+ justify-content: space-between;
+ width: 70%;
 }
-tr{
-  display: flex;
+.container div{
+ display: flex;
+ text-align: center;
+ flex-direction: column;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
 }
 
-td{
-  padding: 10px;
-  background-color: aquamarine;
-  margin-left: 10px;
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+  top: -30px;
 }
 
-button{
-  padding: 0px 10px;
-  background-color:aqua;
-  color:black;
-  border: none;
-  border-radius: 10px;
-  margin-left: 10px;
-  font-weight: bold;
-  border: 1px solid red;
-}
-button:hover{
+.tooltip:hover .tooltiptext {
+  visibility: visible;
   cursor: pointer;
 }
